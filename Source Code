@@ -1,0 +1,28 @@
+import copy
+
+matrix = [[1/6, 0.8],
+          [5/6, 0.2]]
+p = 100
+i = 0
+
+updatedMatrix = copy.deepcopy(matrix)
+
+while i < p:
+    r1c1 = (matrix[0][0] * updatedMatrix[0][0]) + (matrix[0][1] * updatedMatrix[1][0])
+    r1c2 = (matrix[0][0] * updatedMatrix[0][1]) + (matrix[0][1] * updatedMatrix[1][1])
+    r2c1 = (matrix[1][0] * updatedMatrix[0][0]) + (matrix[1][1] * updatedMatrix[1][0])
+    r2c2 = (matrix[1][0] * updatedMatrix[0][1]) + (matrix[1][1] * updatedMatrix[1][1])
+
+    updatedMatrix[0][0] = r1c1
+    updatedMatrix[0][1] = r1c2
+    updatedMatrix[1][0] = r2c1
+    updatedMatrix[1][1] = r2c2
+
+    i += 1
+
+r1c1 = round(updatedMatrix[0][0], 5)
+r1c2 = round(updatedMatrix[0][1], 5)
+r2c1 = round(updatedMatrix[1][0], 5)
+r2c2 = round(updatedMatrix[1][1], 5)
+
+print(f"The result of raising the matrix to {p} is:\n[{r1c1}, {r1c2}]\n[{r2c1}, {r2c2}]\n")
